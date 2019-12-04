@@ -77,3 +77,7 @@ class SID:
             return ''
 
         return res["response_data"]
+
+    def loginCheck(self, target):
+        raise NotImplementedError()
+
