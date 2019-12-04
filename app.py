@@ -95,3 +95,8 @@ class SID:
 
         return True
 
+    def setClientName(self, client_name):
+        self.client_name = client_name
+
+    def getClientName(self):
+        return self.client_name
