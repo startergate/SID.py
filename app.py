@@ -43,7 +43,7 @@ class SID:
         }
 
     def logout(self, clientid, sessid):
-        res = requests.post(self.baseURL + "/session/", {
+        res = requests.delete(self.baseURL + "/session/", data={
             "type": "logout",
             "clientid": clientid,
             "sessid": sessid
