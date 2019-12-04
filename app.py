@@ -90,3 +90,8 @@ class SID:
             "value": pw
         }).json()
 
+        if res["type"] == "error" or not res["is_succeed"]:
+            raise Exception("Input Data Error")
+
+        return True
+
