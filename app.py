@@ -54,3 +54,16 @@ class SID:
 
         return
 
+    def register(self, clientid, userid, pw, nickname = "User"):
+        res = requests.post("/user/", {
+            "type": "register",
+            "clientid": clientid,
+            "userid": userid,
+            "nickname": nickname,
+            "password": pw
+        }).json()
+
+        if res["type"] == "error" or not res["is_succeed"]:
+            raise Exception("Input Data Error")
+
+        return res["private_id"]
