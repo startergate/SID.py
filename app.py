@@ -26,4 +26,19 @@ class SID:
             "expire": res["response_data"][3],
         }
 
-    
+    def loginAuth(self, clientid, sessid):
+        res = requests.post(self.baseURL + '/session/', {
+            "type": "login",
+            "clientid": clientid,
+            "sessid": sessid
+        }).json()
+
+        if res["type"] == "error":
+            raise Exception("Input Data Error")
+        return {
+            "sessid": res["response_data"][0],
+            "pid": res["response_data"][1],
+            "nickname": res["response_data"][2],
+            "expire": res["response_data"][3],
+        }
+
