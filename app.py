@@ -42,3 +42,15 @@ class SID:
             "expire": res["response_data"][3],
         }
 
+    def logout(self, clientid, sessid):
+        res = requests.post(self.baseURL + "/session/", {
+            "type": "logout",
+            "clientid": clientid,
+            "sessid": sessid
+        }).json()
+
+        if res["type"] == "error" or not res["is_succeed"]:
+            raise Exception("Input Data Error")
+
+        return
+
