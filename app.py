@@ -81,3 +81,12 @@ class SID:
     def loginCheck(self, target):
         raise NotImplementedError()
 
+    def passwordCheck(self, clientid, sessid, pw):
+        res = requests.post("/password/verify", {
+            "type": "verify",
+            "data": "password",
+            "clientid": clientid,
+            "sessid": sessid,
+            "value": pw
+        }).json()
+
