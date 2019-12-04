@@ -67,3 +67,13 @@ class SID:
             raise Exception("Input Data Error")
 
         return res["private_id"]
+
+    def getUserNickname(self, clientid, sessid):
+        res = requests.get('{}/{}/usname'.format(clientid, sessid))
+
+        if res["type"] == 'error':
+            raise Exception('Input Data Error')
+        if not res["is_valid"]:
+            return ''
+
+        return res["response_data"]
