@@ -2,7 +2,7 @@ import requests
 
 
 class SID:
-    baseURL = "http://sid.donote.co:3000/api/v1/"
+    baseURL = "http://sid.donote.co:3000/api/v1"
 
     def __init__(self, client_name):
         self.client_name = client_name
